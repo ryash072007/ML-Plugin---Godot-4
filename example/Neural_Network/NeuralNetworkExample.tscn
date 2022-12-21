@@ -1,0 +1,90 @@
+[gd_scene load_steps=10 format=3 uid="uid://dpwt62kf28lrx"]
+
+[ext_resource type="Script" path="res://example/Neural_Network/NeuralNetworkExample.gd" id="1_jbnwg"]
+[ext_resource type="Texture2D" uid="uid://c3wg7lf3asy5y" path="res://example/Neural_Network/Tileset.png" id="2_adhby"]
+[ext_resource type="PackedScene" uid="uid://cyurn4kmfkt87" path="res://example/Neural_Network/End.tscn" id="3_pbr3u"]
+[ext_resource type="Script" path="res://example/Neural_Network/Spawner.gd" id="3_tv7nh"]
+[ext_resource type="PackedScene" uid="uid://cep7p186qxaju" path="res://example/Neural_Network/Death.tscn" id="4_iq67k"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_n77yk"]
+texture = ExtResource("2_adhby")
+texture_region_size = Vector2i(32, 32)
+0:0/0 = 0
+0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+0:0/0/physics_layer_0/angular_velocity = 0.0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
+1:0/0 = 0
+1:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+1:0/0/physics_layer_0/angular_velocity = 0.0
+
+[sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_snusv"]
+resource_name = "End"
+scenes/1/scene = ExtResource("3_pbr3u")
+
+[sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_6s36a"]
+resource_name = "Death"
+scenes/1/scene = ExtResource("4_iq67k")
+
+[sub_resource type="TileSet" id="TileSet_1md60"]
+tile_size = Vector2i(32, 32)
+physics_layer_0/collision_layer = 3
+sources/0 = SubResource("TileSetAtlasSource_n77yk")
+sources/1 = SubResource("TileSetScenesCollectionSource_snusv")
+sources/2 = SubResource("TileSetScenesCollectionSource_6s36a")
+
+[node name="NeuralNetworkExample" type="Node2D"]
+script = ExtResource("1_jbnwg")
+
+[node name="TileMap" type="TileMap" parent="."]
+tile_set = SubResource("TileSet_1md60")
+format = 2
+layer_0/tile_data = PackedInt32Array(1179648, 0, 0, 1245184, 0, 0, 1179649, 0, 0, 1245185, 0, 0, 1179650, 0, 0, 1245186, 0, 0, 1179651, 0, 0, 1245187, 0, 0, 1179652, 0, 0, 1245188, 0, 0, 1179653, 0, 0, 1245189, 0, 0, 1179654, 0, 0, 1245190, 0, 0, 1179655, 0, 0, 1245191, 0, 0, 1179656, 0, 0, 1245192, 0, 0, 1179657, 0, 0, 1245193, 0, 0, 1179658, 0, 0, 1245194, 0, 0, 1179659, 0, 0, 1245195, 0, 0, 1179660, 0, 0, 1245196, 0, 0, 1179661, 0, 0, 1245197, 0, 0, 1179662, 0, 0, 1245198, 0, 0, 1179663, 0, 0, 1245199, 0, 0, 1179664, 0, 0, 1245200, 0, 0, 1179665, 0, 0, 1245201, 0, 0, 1179666, 0, 0, 1245202, 0, 0, 1179667, 0, 0, 1245203, 0, 0, 1179668, 0, 0, 1245204, 0, 0, 1179669, 0, 0, 1245205, 0, 0, 1179670, 0, 0, 1245206, 0, 0, 1179671, 0, 0, 1245207, 0, 0, 1179672, 0, 0, 1245208, 0, 0, 1179673, 0, 0, 1245209, 0, 0, 1179674, 0, 0, 1245210, 0, 0, 1179675, 0, 0, 1245211, 0, 0, 1179676, 0, 0, 1245212, 0, 0, 1179677, 0, 0, 1245213, 0, 0, 1179678, 0, 0, 1245214, 0, 0, 1179679, 0, 0, 1245215, 0, 0, 1179680, 0, 0, 1245216, 0, 0, 1179681, 0, 0, 1245217, 0, 0, 1179682, 0, 0, 1245218, 0, 0, 1179683, 0, 0, 1245219, 0, 0, 1310720, 0, 0, 1310721, 0, 0, 1310722, 0, 0, 1310723, 0, 0, 1310724, 0, 0, 1310725, 0, 0, 1310726, 0, 0, 1310727, 0, 0, 1310728, 0, 0, 1310729, 0, 0, 1310730, 0, 0, 1310731, 0, 0, 1310732, 0, 0, 1310733, 0, 0, 1310734, 0, 0, 1310735, 0, 0, 1310736, 0, 0, 1310737, 0, 0, 1310738, 0, 0, 1310739, 0, 0, 1310740, 0, 0, 1310741, 0, 0, 1310742, 0, 0, 1310743, 0, 0, 1310744, 0, 0, 1310745, 0, 0, 1310746, 0, 0, 1310747, 0, 0, 1310748, 0, 0, 1310749, 0, 0, 1310750, 0, 0, 1310751, 0, 0, 1310752, 0, 0, 1310753, 0, 0, 1310754, 0, 0, 1310755, 0, 0, -1, 0, 0, 65535, 0, 0, 131071, 0, 0, 196607, 0, 0, 262143, 0, 0, 327679, 0, 0, 393215, 0, 0, 458751, 0, 0, 524287, 0, 0, 589823, 0, 0, 655359, 0, 0, 720895, 0, 0, 786431, 0, 0, 851967, 0, 0, 917503, 0, 0, 983039, 0, 0, 1048575, 0, 0, 1114111, 0, 0, 1179647, 0, 0, 1245183, 0, 0, 1310719, 0, 0, 1376255, 0, 0, -65536, 0, 0, -65535, 0, 0, -65534, 0, 0, -65533, 0, 0, -65532, 0, 0, -65531, 0, 0, -65530, 0, 0, -65529, 0, 0, -65528, 0, 0, -65527, 0, 0, -65526, 0, 0, -65525, 0, 0, -65524, 0, 0, -65523, 0, 0, -65522, 0, 0, -65521, 0, 0, -65520, 0, 0, -65519, 0, 0, -65518, 0, 0, -65517, 0, 0, -65516, 0, 0, -65515, 0, 0, -65514, 0, 0, -65513, 0, 0, -65512, 0, 0, -65511, 0, 0, -65510, 0, 0, -65509, 0, 0, -65508, 0, 0, -65507, 0, 0, -65506, 0, 0, -65505, 0, 0, -65504, 0, 0, -65503, 0, 0, -65502, 0, 0, -65501, 0, 0, -65500, 0, 0, 852004, 1, 65536, 917540, 1, 65536, 983076, 1, 65536, 1048612, 1, 65536, 1114148, 1, 65536, 1179684, 0, 0, 1245220, 0, 0, 1310756, 0, 0, 36, 1, 65536, 65572, 1, 65536, 131108, 1, 65536, 196644, 1, 65536, 262180, 1, 65536, 327716, 1, 65536, 393252, 1, 65536, 458788, 1, 65536, 524324, 1, 65536, 589860, 1, 65536, 655396, 1, 65536, 720932, 1, 65536, 786468, 1, 65536, 1114114, 0, 0, 1048581, 0, 0, 1114117, 0, 0, 917513, 0, 0, 917517, 0, 0, 917518, 0, 0, 917519, 0, 0, 917520, 0, 0, 917521, 0, 0, 917522, 0, 0, 917523, 0, 0, 1048598, 0, 0, 1114134, 0, 0, 917529, 0, 0, 917530, 0, 0, 917531, 0, 0, 1048607, 0, 0, 786445, 0, 0, 851981, 0, 0, 851987, 0, 0, 589845, 0, 0, 524309, 0, 0, -65499, 0, 0, 37, 0, 0, 65573, 0, 0, 131109, 0, 0, 196645, 0, 0, 262181, 0, 0, 327717, 0, 0, 393253, 0, 0, 458789, 0, 0, 524325, 0, 0, 589861, 0, 0, 655397, 0, 0, 720933, 0, 0, 786469, 0, 0, 852005, 0, 0, 917541, 0, 0, 983077, 0, 0, 1048613, 0, 0, 1114149, 0, 0, 1179685, 0, 0, 1245221, 0, 0, 1310757, 0, 0, 851986, 2, 65536, 589844, 2, 65536, 524308, 2, 65536, 524286, 0, 0, 589822, 0, 0, 655358, 0, 0, 720894, 0, 0, 786430, 0, 0, 851966, 0, 0, 917502, 0, 0, 983038, 0, 0, 1048574, 0, 0, 1114110, 0, 0, 1179646, 0, 0, 1245182, 0, 0, 1310718, 0, 0, 1376254, 0, 0, -65538, 0, 0, -2, 0, 0, 65534, 0, 0, 131070, 0, 0, 196606, 0, 0, 262142, 0, 0, 327678, 0, 0, 393214, 0, 0, 458750, 0, 0, -65537, 0, 0, -131072, 0, 0, -131071, 0, 0, -131070, 0, 0, -131069, 0, 0, -131068, 0, 0, -131067, 0, 0, -131066, 0, 0, -131065, 0, 0, -131064, 0, 0, -131063, 0, 0, -131062, 0, 0, -131061, 0, 0, -131060, 0, 0, -131059, 0, 0, -131058, 0, 0, -131057, 0, 0, -131056, 0, 0, -131055, 0, 0, -131054, 0, 0, -131053, 0, 0, -131052, 0, 0, -131051, 0, 0, -131050, 0, 0, -131049, 0, 0, -131048, 0, 0, -131047, 0, 0, -131046, 0, 0, -131045, 0, 0, -131044, 0, 0, -131043, 0, 0, -131042, 0, 0, -131041, 0, 0, -131040, 0, 0, -131039, 0, 0, -131038, 0, 0, -131037, 0, 0, -131036, 0, 0, -131035, 0, 0, -131034, 0, 0, -65498, 0, 0, 38, 0, 0, 65574, 0, 0, 131110, 0, 0, 196646, 0, 0, 262182, 0, 0, 327718, 0, 0, 393254, 0, 0, 458790, 0, 0, 524326, 0, 0, 589862, 0, 0, 655398, 0, 0, 720934, 0, 0, 786470, 0, 0, 852006, 0, 0, 917542, 0, 0, 983078, 0, 0, 1048614, 0, 0, 1114150, 0, 0, 1179686, 0, 0, 1245222, 0, 0, 1310758, 0, 0, 1441790, 0, 0, 1441791, 0, 0, 1376256, 0, 0, 1376257, 0, 0, 1376258, 0, 0, 1376259, 0, 0, 1376260, 0, 0, 1376261, 0, 0, 1376262, 0, 0, 1376263, 0, 0, 1376264, 0, 0, 1376265, 0, 0, 1376266, 0, 0, 1376267, 0, 0, 1376268, 0, 0, 1376269, 0, 0, 1376270, 0, 0, 1376271, 0, 0, 1376272, 0, 0, 1376273, 0, 0, 1376274, 0, 0, 1376275, 0, 0, 1376276, 0, 0, 1376277, 0, 0, 1376278, 0, 0, 1376279, 0, 0, 1376280, 0, 0, 1376281, 0, 0, 1376282, 0, 0, 1376283, 0, 0, 1376284, 0, 0, 1376285, 0, 0, 1376286, 0, 0, 1376287, 0, 0, 1376288, 0, 0, 1376289, 0, 0, 1376290, 0, 0, 1376291, 0, 0, 1376292, 0, 0, 1376293, 0, 0, 1376294, 0, 0, 851980, 2, 65536, 851995, 2, 65536, 720921, 2, 65536, 851978, 2, 65536, 1048582, 0, 0, 655381, 0, 0, 524301, 0, 0, 458768, 0, 0, 458769, 0, 0, 851982, 2, 65536, 655380, 2, 65536)
+
+[node name="reload" type="Timer" parent="."]
+wait_time = 5.0
+autostart = true
+
+[node name="Spawner" type="Node2D" parent="."]
+position = Vector2(21, 555)
+script = ExtResource("3_tv7nh")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(595, 317)
+current = true
+zoom = Vector2(0.9, 0.9)
+
+[node name="gen" type="Label" parent="."]
+offset_left = 16.0
+offset_right = 854.0
+offset_bottom = 136.0
+theme_override_font_sizes/font_size = 75
+text = "Gen: "
+
+[connection signal="body_entered" from="TileMap/Death" to="TileMap/Death" method="_on_body_entered" flags=18]
+[connection signal="body_entered" from="TileMap/@Death@51754" to="TileMap/@Death@51754" method="_on_body_entered" flags=18]
+[connection signal="body_entered" from="TileMap/@Death@51755" to="TileMap/@Death@51755" method="_on_body_entered" flags=18]
+[connection signal="body_entered" from="TileMap/@Death@51756" to="TileMap/@Death@51756" method="_on_body_entered" flags=18]
+[connection signal="body_entered" from="TileMap/@Death@51757" to="TileMap/@Death@51757" method="_on_body_entered" flags=18]
+[connection signal="body_entered" from="TileMap/@Death@51758" to="TileMap/@Death@51758" method="_on_body_entered" flags=18]
+[connection signal="body_entered" from="TileMap/@Death@51759" to="TileMap/@Death@51759" method="_on_body_entered" flags=18]
+[connection signal="body_entered" from="TileMap/@Death@51760" to="TileMap/@Death@51760" method="_on_body_entered" flags=18]
+[connection signal="body_entered" from="TileMap/@Death@51761" to="TileMap/@Death@51761" method="_on_body_entered" flags=18]
+[connection signal="body_entered" from="TileMap/End" to="TileMap/End" method="_on_body_entered" flags=18]
+[connection signal="body_entered" from="TileMap/@End@51762" to="TileMap/@End@51762" method="_on_body_entered" flags=18]
+[connection signal="body_entered" from="TileMap/@End@51763" to="TileMap/@End@51763" method="_on_body_entered" flags=18]
+[connection signal="body_entered" from="TileMap/@End@51764" to="TileMap/@End@51764" method="_on_body_entered" flags=18]
+[connection signal="body_entered" from="TileMap/@End@51765" to="TileMap/@End@51765" method="_on_body_entered" flags=18]
+[connection signal="body_entered" from="TileMap/@End@51766" to="TileMap/@End@51766" method="_on_body_entered" flags=18]
+[connection signal="body_entered" from="TileMap/@End@51767" to="TileMap/@End@51767" method="_on_body_entered" flags=18]
+[connection signal="body_entered" from="TileMap/@End@51768" to="TileMap/@End@51768" method="_on_body_entered" flags=18]
+[connection signal="body_entered" from="TileMap/@End@51769" to="TileMap/@End@51769" method="_on_body_entered" flags=18]
+[connection signal="body_entered" from="TileMap/@End@51770" to="TileMap/@End@51770" method="_on_body_entered" flags=18]
+[connection signal="body_entered" from="TileMap/@End@51771" to="TileMap/@End@51771" method="_on_body_entered" flags=18]
+[connection signal="body_entered" from="TileMap/@End@51772" to="TileMap/@End@51772" method="_on_body_entered" flags=18]
+[connection signal="body_entered" from="TileMap/@End@51773" to="TileMap/@End@51773" method="_on_body_entered" flags=18]
+[connection signal="body_entered" from="TileMap/@End@51774" to="TileMap/@End@51774" method="_on_body_entered" flags=18]
+[connection signal="body_entered" from="TileMap/@End@51775" to="TileMap/@End@51775" method="_on_body_entered" flags=18]
+[connection signal="body_entered" from="TileMap/@End@51776" to="TileMap/@End@51776" method="_on_body_entered" flags=18]
+[connection signal="body_entered" from="TileMap/@End@51777" to="TileMap/@End@51777" method="_on_body_entered" flags=18]
+[connection signal="body_entered" from="TileMap/@End@51778" to="TileMap/@End@51778" method="_on_body_entered" flags=18]
+[connection signal="timeout" from="reload" to="Spawner" method="_on_reload_timeout"]

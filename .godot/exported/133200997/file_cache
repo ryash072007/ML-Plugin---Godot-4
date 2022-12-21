@@ -1,0 +1,7 @@
+res://example/Neural_Network/Death.tscn::b219d4cba92669e88b0160c5c8e76e22::1671536269::res://.godot/exported/133200997/export-83d028f6321562d825708289b0a80a6e-Death.scn
+res://example/Neural_Network/End.tscn::bedbb4ed336fd255e9872e4fbae753b1::1671536269::res://.godot/exported/133200997/export-f9947760efac52833f46d5d8e3fb0b8d-End.scn
+res://example/Neural_Network/NeuralNetworkExample.tscn::1d91bfd5bfbdeadde47f71eb985d0cea::1671538694::res://.godot/exported/133200997/export-27a9bfcc36efa0e31de48eb447c543a3-NeuralNetworkExample.scn
+res://example/Neural_Network/Player.tscn::4be84d52fe4d3c6d85ad2782f6aa2e34::1671536269::res://.godot/exported/133200997/export-d05a17cb80496a5ca6811b7b4d79bbec-Player.scn
+res://example/Q_Learning/q_learning_example.tscn::76b32910bc8a432ee9fede85cac4e442::1671562199::res://.godot/exported/133200997/export-fe3d9fdda054341cc8832459b34044f2-q_learning_example.scn
+res://example/Q_Learning/virtual_q_learning.tscn::5fb919fa074357f947ae8fe05d18f069::1671561826::res://.godot/exported/133200997/export-feba13d392503aaf88b650821b988075-virtual_q_learning.scn
+res://example/Q_Learning/state.tscn::be64e440ac388f6ffa724a6d8e148517::1671561826::res://.godot/exported/133200997/export-0b195a79d911266da4181d63664e61c5-state.scn

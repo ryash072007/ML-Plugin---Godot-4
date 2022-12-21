@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://dgw5vo5vq10r6"]
+
+[ext_resource type="Script" path="res://example/Q_Learning/state.gd" id="1_3nwoo"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jtcnq"]
+size = Vector2(64, 64)
+
+[node name="State" type="Area2D" groups=["state"]]
+script = ExtResource("1_3nwoo")
+
+[node name="collision" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_jtcnq")
+
+[node name="color" type="ColorRect" parent="."]
+offset_left = -32.0
+offset_top = -32.0
+offset_right = 32.0
+offset_bottom = 32.0
+color = Color(0.305882, 0.121569, 0, 1)

@@ -1,0 +1,898 @@
+[gd_scene load_steps=5 format=3 uid="uid://cuwgna8yt48ng"]
+
+[ext_resource type="Script" path="res://example/Q_Learning/ai.gd" id="1_21ytb"]
+[ext_resource type="PackedScene" uid="uid://dgw5vo5vq10r6" path="res://example/Q_Learning/state.tscn" id="2_44c0s"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_sw5jp"]
+size = Vector2(400, 46)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pe1j6"]
+size = Vector2(40, 40)
+
+[node name="QLearningExample" type="Node2D"]
+
+[node name="env" type="Node2D" parent="."]
+position = Vector2(243, 216)
+
+[node name="State" parent="env" instance=ExtResource("2_44c0s")]
+position = Vector2(-108, -108)
+
+[node name="State2" parent="env" instance=ExtResource("2_44c0s")]
+position = Vector2(-36, -108)
+state = 1
+
+[node name="State3" parent="env" instance=ExtResource("2_44c0s")]
+position = Vector2(36, -108)
+state = 2
+punishment_state = false
+death_state = true
+
+[node name="State4" parent="env" instance=ExtResource("2_44c0s")]
+position = Vector2(108, -108)
+state = 3
+reward_state = true
+punishment_state = false
+
+[node name="State5" parent="env" instance=ExtResource("2_44c0s")]
+position = Vector2(-108, -36)
+state = 4
+
+[node name="State6" parent="env" instance=ExtResource("2_44c0s")]
+position = Vector2(-36, -36)
+state = 5
+
+[node name="State7" parent="env" instance=ExtResource("2_44c0s")]
+position = Vector2(36, -36)
+state = 6
+
+[node name="State8" parent="env" instance=ExtResource("2_44c0s")]
+position = Vector2(108, -36)
+state = 7
+
+[node name="State9" parent="env" instance=ExtResource("2_44c0s")]
+position = Vector2(-108, 36)
+state = 8
+
+[node name="State10" parent="env" instance=ExtResource("2_44c0s")]
+position = Vector2(-36, 36)
+state = 9
+punishment_state = false
+death_state = true
+
+[node name="State11" parent="env" instance=ExtResource("2_44c0s")]
+position = Vector2(36, 36)
+state = 10
+
+[node name="State12" parent="env" instance=ExtResource("2_44c0s")]
+position = Vector2(108, 36)
+state = 11
+
+[node name="State13" parent="env" instance=ExtResource("2_44c0s")]
+position = Vector2(-108, 108)
+state = 12
+
+[node name="State14" parent="env" instance=ExtResource("2_44c0s")]
+position = Vector2(-36, 108)
+state = 13
+
+[node name="State15" parent="env" instance=ExtResource("2_44c0s")]
+position = Vector2(36, 108)
+state = 14
+reward_state = true
+punishment_state = false
+
+[node name="State16" parent="env" instance=ExtResource("2_44c0s")]
+position = Vector2(108, 108)
+state = 15
+
+[node name="boundary" type="Area2D" parent="env" groups=["boundary"]]
+position = Vector2(-576, -324)
+priority = 1.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="env/boundary"]
+position = Vector2(577, 157)
+shape = SubResource("RectangleShape2D_sw5jp")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="env/boundary"]
+position = Vector2(405, 320)
+rotation = 1.57079
+shape = SubResource("RectangleShape2D_sw5jp")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="env/boundary"]
+position = Vector2(747, 320)
+rotation = 1.57079
+shape = SubResource("RectangleShape2D_sw5jp")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="env/boundary"]
+position = Vector2(576, 493)
+shape = SubResource("RectangleShape2D_sw5jp")
+
+[node name="ColorRect" type="ColorRect" parent="env/boundary"]
+offset_left = 387.0
+offset_top = 134.0
+offset_right = 766.0
+offset_bottom = 183.0
+color = Color(0.407843, 0.305882, 0.00784314, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="ColorRect3" type="ColorRect" parent="env/boundary"]
+offset_left = 436.0
+offset_top = 134.0
+offset_right = 815.0
+offset_bottom = 183.0
+rotation = 1.5708
+color = Color(0.407843, 0.305882, 0.00784314, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="ColorRect4" type="ColorRect" parent="env/boundary"]
+offset_left = 766.0
+offset_top = 134.0
+offset_right = 1145.0
+offset_bottom = 183.0
+rotation = 1.5708
+color = Color(0.407843, 0.305882, 0.00784314, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="ColorRect2" type="ColorRect" parent="env/boundary"]
+offset_left = 387.0
+offset_top = 464.0
+offset_right = 766.0
+offset_bottom = 513.0
+color = Color(0.407843, 0.305882, 0.00784314, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="ai" type="Area2D" parent="env"]
+position = Vector2(-108, -108)
+script = ExtResource("1_21ytb")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="env/ai"]
+shape = SubResource("RectangleShape2D_pe1j6")
+
+[node name="ColorRect" type="ColorRect" parent="env/ai"]
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+color = Color(0, 0, 0, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="env2" type="Node2D" parent="."]
+position = Vector2(677, 212)
+
+[node name="State" parent="env2" instance=ExtResource("2_44c0s")]
+position = Vector2(-108, -108)
+
+[node name="State2" parent="env2" instance=ExtResource("2_44c0s")]
+position = Vector2(-36, -108)
+state = 1
+
+[node name="State3" parent="env2" instance=ExtResource("2_44c0s")]
+position = Vector2(36, -108)
+state = 2
+punishment_state = false
+death_state = true
+
+[node name="State4" parent="env2" instance=ExtResource("2_44c0s")]
+position = Vector2(108, -108)
+state = 3
+reward_state = true
+punishment_state = false
+
+[node name="State5" parent="env2" instance=ExtResource("2_44c0s")]
+position = Vector2(-108, -36)
+state = 4
+
+[node name="State6" parent="env2" instance=ExtResource("2_44c0s")]
+position = Vector2(-36, -36)
+state = 5
+
+[node name="State7" parent="env2" instance=ExtResource("2_44c0s")]
+position = Vector2(36, -36)
+state = 6
+
+[node name="State8" parent="env2" instance=ExtResource("2_44c0s")]
+position = Vector2(108, -36)
+state = 7
+
+[node name="State9" parent="env2" instance=ExtResource("2_44c0s")]
+position = Vector2(-108, 36)
+state = 8
+
+[node name="State10" parent="env2" instance=ExtResource("2_44c0s")]
+position = Vector2(-36, 36)
+state = 9
+punishment_state = false
+death_state = true
+
+[node name="State11" parent="env2" instance=ExtResource("2_44c0s")]
+position = Vector2(36, 36)
+state = 10
+
+[node name="State12" parent="env2" instance=ExtResource("2_44c0s")]
+position = Vector2(108, 36)
+state = 11
+
+[node name="State13" parent="env2" instance=ExtResource("2_44c0s")]
+position = Vector2(-108, 108)
+state = 12
+
+[node name="State14" parent="env2" instance=ExtResource("2_44c0s")]
+position = Vector2(-36, 108)
+state = 13
+
+[node name="State15" parent="env2" instance=ExtResource("2_44c0s")]
+position = Vector2(36, 108)
+state = 14
+reward_state = true
+punishment_state = false
+
+[node name="State16" parent="env2" instance=ExtResource("2_44c0s")]
+position = Vector2(108, 108)
+state = 15
+
+[node name="boundary" type="Area2D" parent="env2" groups=["boundary"]]
+position = Vector2(-576, -324)
+priority = 1.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="env2/boundary"]
+position = Vector2(577, 157)
+shape = SubResource("RectangleShape2D_sw5jp")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="env2/boundary"]
+position = Vector2(405, 320)
+rotation = 1.57079
+shape = SubResource("RectangleShape2D_sw5jp")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="env2/boundary"]
+position = Vector2(747, 320)
+rotation = 1.57079
+shape = SubResource("RectangleShape2D_sw5jp")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="env2/boundary"]
+position = Vector2(576, 493)
+shape = SubResource("RectangleShape2D_sw5jp")
+
+[node name="ColorRect" type="ColorRect" parent="env2/boundary"]
+offset_left = 387.0
+offset_top = 134.0
+offset_right = 766.0
+offset_bottom = 183.0
+color = Color(0.407843, 0.305882, 0.00784314, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="ColorRect3" type="ColorRect" parent="env2/boundary"]
+offset_left = 436.0
+offset_top = 134.0
+offset_right = 815.0
+offset_bottom = 183.0
+rotation = 1.5708
+color = Color(0.407843, 0.305882, 0.00784314, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="ColorRect4" type="ColorRect" parent="env2/boundary"]
+offset_left = 766.0
+offset_top = 134.0
+offset_right = 1145.0
+offset_bottom = 183.0
+rotation = 1.5708
+color = Color(0.407843, 0.305882, 0.00784314, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="ColorRect2" type="ColorRect" parent="env2/boundary"]
+offset_left = 387.0
+offset_top = 464.0
+offset_right = 766.0
+offset_bottom = 513.0
+color = Color(0.407843, 0.305882, 0.00784314, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="ai" type="Area2D" parent="env2"]
+position = Vector2(-108, -108)
+script = ExtResource("1_21ytb")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="env2/ai"]
+shape = SubResource("RectangleShape2D_pe1j6")
+
+[node name="ColorRect" type="ColorRect" parent="env2/ai"]
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+color = Color(0, 0, 0, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="env3" type="Node2D" parent="."]
+position = Vector2(1121, 208)
+
+[node name="State" parent="env3" instance=ExtResource("2_44c0s")]
+position = Vector2(-108, -108)
+
+[node name="State2" parent="env3" instance=ExtResource("2_44c0s")]
+position = Vector2(-36, -108)
+state = 1
+
+[node name="State3" parent="env3" instance=ExtResource("2_44c0s")]
+position = Vector2(36, -108)
+state = 2
+punishment_state = false
+death_state = true
+
+[node name="State4" parent="env3" instance=ExtResource("2_44c0s")]
+position = Vector2(108, -108)
+state = 3
+reward_state = true
+punishment_state = false
+
+[node name="State5" parent="env3" instance=ExtResource("2_44c0s")]
+position = Vector2(-108, -36)
+state = 4
+
+[node name="State6" parent="env3" instance=ExtResource("2_44c0s")]
+position = Vector2(-36, -36)
+state = 5
+
+[node name="State7" parent="env3" instance=ExtResource("2_44c0s")]
+position = Vector2(36, -36)
+state = 6
+
+[node name="State8" parent="env3" instance=ExtResource("2_44c0s")]
+position = Vector2(108, -36)
+state = 7
+
+[node name="State9" parent="env3" instance=ExtResource("2_44c0s")]
+position = Vector2(-108, 36)
+state = 8
+
+[node name="State10" parent="env3" instance=ExtResource("2_44c0s")]
+position = Vector2(-36, 36)
+state = 9
+punishment_state = false
+death_state = true
+
+[node name="State11" parent="env3" instance=ExtResource("2_44c0s")]
+position = Vector2(36, 36)
+state = 10
+
+[node name="State12" parent="env3" instance=ExtResource("2_44c0s")]
+position = Vector2(108, 36)
+state = 11
+
+[node name="State13" parent="env3" instance=ExtResource("2_44c0s")]
+position = Vector2(-108, 108)
+state = 12
+
+[node name="State14" parent="env3" instance=ExtResource("2_44c0s")]
+position = Vector2(-36, 108)
+state = 13
+
+[node name="State15" parent="env3" instance=ExtResource("2_44c0s")]
+position = Vector2(36, 108)
+state = 14
+reward_state = true
+punishment_state = false
+
+[node name="State16" parent="env3" instance=ExtResource("2_44c0s")]
+position = Vector2(108, 108)
+state = 15
+
+[node name="boundary" type="Area2D" parent="env3" groups=["boundary"]]
+position = Vector2(-576, -324)
+priority = 1.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="env3/boundary"]
+position = Vector2(577, 157)
+shape = SubResource("RectangleShape2D_sw5jp")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="env3/boundary"]
+position = Vector2(405, 320)
+rotation = 1.57079
+shape = SubResource("RectangleShape2D_sw5jp")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="env3/boundary"]
+position = Vector2(747, 320)
+rotation = 1.57079
+shape = SubResource("RectangleShape2D_sw5jp")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="env3/boundary"]
+position = Vector2(576, 493)
+shape = SubResource("RectangleShape2D_sw5jp")
+
+[node name="ColorRect" type="ColorRect" parent="env3/boundary"]
+offset_left = 387.0
+offset_top = 134.0
+offset_right = 766.0
+offset_bottom = 183.0
+color = Color(0.407843, 0.305882, 0.00784314, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="ColorRect3" type="ColorRect" parent="env3/boundary"]
+offset_left = 436.0
+offset_top = 134.0
+offset_right = 815.0
+offset_bottom = 183.0
+rotation = 1.5708
+color = Color(0.407843, 0.305882, 0.00784314, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="ColorRect4" type="ColorRect" parent="env3/boundary"]
+offset_left = 766.0
+offset_top = 134.0
+offset_right = 1145.0
+offset_bottom = 183.0
+rotation = 1.5708
+color = Color(0.407843, 0.305882, 0.00784314, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="ColorRect2" type="ColorRect" parent="env3/boundary"]
+offset_left = 387.0
+offset_top = 464.0
+offset_right = 766.0
+offset_bottom = 513.0
+color = Color(0.407843, 0.305882, 0.00784314, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="ai" type="Area2D" parent="env3"]
+position = Vector2(-108, -108)
+script = ExtResource("1_21ytb")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="env3/ai"]
+shape = SubResource("RectangleShape2D_pe1j6")
+
+[node name="ColorRect" type="ColorRect" parent="env3/ai"]
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+color = Color(0, 0, 0, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="env4" type="Node2D" parent="."]
+position = Vector2(247, 645)
+
+[node name="State" parent="env4" instance=ExtResource("2_44c0s")]
+position = Vector2(-108, -108)
+
+[node name="State2" parent="env4" instance=ExtResource("2_44c0s")]
+position = Vector2(-36, -108)
+state = 1
+
+[node name="State3" parent="env4" instance=ExtResource("2_44c0s")]
+position = Vector2(36, -108)
+state = 2
+punishment_state = false
+death_state = true
+
+[node name="State4" parent="env4" instance=ExtResource("2_44c0s")]
+position = Vector2(108, -108)
+state = 3
+reward_state = true
+punishment_state = false
+
+[node name="State5" parent="env4" instance=ExtResource("2_44c0s")]
+position = Vector2(-108, -36)
+state = 4
+
+[node name="State6" parent="env4" instance=ExtResource("2_44c0s")]
+position = Vector2(-36, -36)
+state = 5
+
+[node name="State7" parent="env4" instance=ExtResource("2_44c0s")]
+position = Vector2(36, -36)
+state = 6
+
+[node name="State8" parent="env4" instance=ExtResource("2_44c0s")]
+position = Vector2(108, -36)
+state = 7
+
+[node name="State9" parent="env4" instance=ExtResource("2_44c0s")]
+position = Vector2(-108, 36)
+state = 8
+
+[node name="State10" parent="env4" instance=ExtResource("2_44c0s")]
+position = Vector2(-36, 36)
+state = 9
+punishment_state = false
+death_state = true
+
+[node name="State11" parent="env4" instance=ExtResource("2_44c0s")]
+position = Vector2(36, 36)
+state = 10
+
+[node name="State12" parent="env4" instance=ExtResource("2_44c0s")]
+position = Vector2(108, 36)
+state = 11
+
+[node name="State13" parent="env4" instance=ExtResource("2_44c0s")]
+position = Vector2(-108, 108)
+state = 12
+
+[node name="State14" parent="env4" instance=ExtResource("2_44c0s")]
+position = Vector2(-36, 108)
+state = 13
+
+[node name="State15" parent="env4" instance=ExtResource("2_44c0s")]
+position = Vector2(36, 108)
+state = 14
+reward_state = true
+punishment_state = false
+
+[node name="State16" parent="env4" instance=ExtResource("2_44c0s")]
+position = Vector2(108, 108)
+state = 15
+
+[node name="boundary" type="Area2D" parent="env4" groups=["boundary"]]
+position = Vector2(-576, -324)
+priority = 1.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="env4/boundary"]
+position = Vector2(577, 157)
+shape = SubResource("RectangleShape2D_sw5jp")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="env4/boundary"]
+position = Vector2(405, 320)
+rotation = 1.57079
+shape = SubResource("RectangleShape2D_sw5jp")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="env4/boundary"]
+position = Vector2(747, 320)
+rotation = 1.57079
+shape = SubResource("RectangleShape2D_sw5jp")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="env4/boundary"]
+position = Vector2(576, 493)
+shape = SubResource("RectangleShape2D_sw5jp")
+
+[node name="ColorRect" type="ColorRect" parent="env4/boundary"]
+offset_left = 387.0
+offset_top = 134.0
+offset_right = 766.0
+offset_bottom = 183.0
+color = Color(0.407843, 0.305882, 0.00784314, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="ColorRect3" type="ColorRect" parent="env4/boundary"]
+offset_left = 436.0
+offset_top = 134.0
+offset_right = 815.0
+offset_bottom = 183.0
+rotation = 1.5708
+color = Color(0.407843, 0.305882, 0.00784314, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="ColorRect4" type="ColorRect" parent="env4/boundary"]
+offset_left = 766.0
+offset_top = 134.0
+offset_right = 1145.0
+offset_bottom = 183.0
+rotation = 1.5708
+color = Color(0.407843, 0.305882, 0.00784314, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="ColorRect2" type="ColorRect" parent="env4/boundary"]
+offset_left = 387.0
+offset_top = 464.0
+offset_right = 766.0
+offset_bottom = 513.0
+color = Color(0.407843, 0.305882, 0.00784314, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="ai" type="Area2D" parent="env4"]
+position = Vector2(-108, -108)
+script = ExtResource("1_21ytb")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="env4/ai"]
+shape = SubResource("RectangleShape2D_pe1j6")
+
+[node name="ColorRect" type="ColorRect" parent="env4/ai"]
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+color = Color(0, 0, 0, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="env5" type="Node2D" parent="."]
+position = Vector2(681, 641)
+
+[node name="State" parent="env5" instance=ExtResource("2_44c0s")]
+position = Vector2(-108, -108)
+
+[node name="State2" parent="env5" instance=ExtResource("2_44c0s")]
+position = Vector2(-36, -108)
+state = 1
+
+[node name="State3" parent="env5" instance=ExtResource("2_44c0s")]
+position = Vector2(36, -108)
+state = 2
+punishment_state = false
+death_state = true
+
+[node name="State4" parent="env5" instance=ExtResource("2_44c0s")]
+position = Vector2(108, -108)
+state = 3
+reward_state = true
+punishment_state = false
+
+[node name="State5" parent="env5" instance=ExtResource("2_44c0s")]
+position = Vector2(-108, -36)
+state = 4
+
+[node name="State6" parent="env5" instance=ExtResource("2_44c0s")]
+position = Vector2(-36, -36)
+state = 5
+
+[node name="State7" parent="env5" instance=ExtResource("2_44c0s")]
+position = Vector2(36, -36)
+state = 6
+
+[node name="State8" parent="env5" instance=ExtResource("2_44c0s")]
+position = Vector2(108, -36)
+state = 7
+
+[node name="State9" parent="env5" instance=ExtResource("2_44c0s")]
+position = Vector2(-108, 36)
+state = 8
+
+[node name="State10" parent="env5" instance=ExtResource("2_44c0s")]
+position = Vector2(-36, 36)
+state = 9
+punishment_state = false
+death_state = true
+
+[node name="State11" parent="env5" instance=ExtResource("2_44c0s")]
+position = Vector2(36, 36)
+state = 10
+
+[node name="State12" parent="env5" instance=ExtResource("2_44c0s")]
+position = Vector2(108, 36)
+state = 11
+
+[node name="State13" parent="env5" instance=ExtResource("2_44c0s")]
+position = Vector2(-108, 108)
+state = 12
+
+[node name="State14" parent="env5" instance=ExtResource("2_44c0s")]
+position = Vector2(-36, 108)
+state = 13
+
+[node name="State15" parent="env5" instance=ExtResource("2_44c0s")]
+position = Vector2(36, 108)
+state = 14
+reward_state = true
+punishment_state = false
+
+[node name="State16" parent="env5" instance=ExtResource("2_44c0s")]
+position = Vector2(108, 108)
+state = 15
+
+[node name="boundary" type="Area2D" parent="env5" groups=["boundary"]]
+position = Vector2(-576, -324)
+priority = 1.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="env5/boundary"]
+position = Vector2(577, 157)
+shape = SubResource("RectangleShape2D_sw5jp")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="env5/boundary"]
+position = Vector2(405, 320)
+rotation = 1.57079
+shape = SubResource("RectangleShape2D_sw5jp")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="env5/boundary"]
+position = Vector2(747, 320)
+rotation = 1.57079
+shape = SubResource("RectangleShape2D_sw5jp")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="env5/boundary"]
+position = Vector2(576, 493)
+shape = SubResource("RectangleShape2D_sw5jp")
+
+[node name="ColorRect" type="ColorRect" parent="env5/boundary"]
+offset_left = 387.0
+offset_top = 134.0
+offset_right = 766.0
+offset_bottom = 183.0
+color = Color(0.407843, 0.305882, 0.00784314, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="ColorRect3" type="ColorRect" parent="env5/boundary"]
+offset_left = 436.0
+offset_top = 134.0
+offset_right = 815.0
+offset_bottom = 183.0
+rotation = 1.5708
+color = Color(0.407843, 0.305882, 0.00784314, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="ColorRect4" type="ColorRect" parent="env5/boundary"]
+offset_left = 766.0
+offset_top = 134.0
+offset_right = 1145.0
+offset_bottom = 183.0
+rotation = 1.5708
+color = Color(0.407843, 0.305882, 0.00784314, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="ColorRect2" type="ColorRect" parent="env5/boundary"]
+offset_left = 387.0
+offset_top = 464.0
+offset_right = 766.0
+offset_bottom = 513.0
+color = Color(0.407843, 0.305882, 0.00784314, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="ai" type="Area2D" parent="env5"]
+position = Vector2(-108, -108)
+script = ExtResource("1_21ytb")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="env5/ai"]
+shape = SubResource("RectangleShape2D_pe1j6")
+
+[node name="ColorRect" type="ColorRect" parent="env5/ai"]
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+color = Color(0, 0, 0, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="env6" type="Node2D" parent="."]
+position = Vector2(1125, 637)
+
+[node name="State" parent="env6" instance=ExtResource("2_44c0s")]
+position = Vector2(-108, -108)
+
+[node name="State2" parent="env6" instance=ExtResource("2_44c0s")]
+position = Vector2(-36, -108)
+state = 1
+
+[node name="State3" parent="env6" instance=ExtResource("2_44c0s")]
+position = Vector2(36, -108)
+state = 2
+punishment_state = false
+death_state = true
+
+[node name="State4" parent="env6" instance=ExtResource("2_44c0s")]
+position = Vector2(108, -108)
+state = 3
+reward_state = true
+punishment_state = false
+
+[node name="State5" parent="env6" instance=ExtResource("2_44c0s")]
+position = Vector2(-108, -36)
+state = 4
+
+[node name="State6" parent="env6" instance=ExtResource("2_44c0s")]
+position = Vector2(-36, -36)
+state = 5
+
+[node name="State7" parent="env6" instance=ExtResource("2_44c0s")]
+position = Vector2(36, -36)
+state = 6
+
+[node name="State8" parent="env6" instance=ExtResource("2_44c0s")]
+position = Vector2(108, -36)
+state = 7
+
+[node name="State9" parent="env6" instance=ExtResource("2_44c0s")]
+position = Vector2(-108, 36)
+state = 8
+
+[node name="State10" parent="env6" instance=ExtResource("2_44c0s")]
+position = Vector2(-36, 36)
+state = 9
+punishment_state = false
+death_state = true
+
+[node name="State11" parent="env6" instance=ExtResource("2_44c0s")]
+position = Vector2(36, 36)
+state = 10
+
+[node name="State12" parent="env6" instance=ExtResource("2_44c0s")]
+position = Vector2(108, 36)
+state = 11
+
+[node name="State13" parent="env6" instance=ExtResource("2_44c0s")]
+position = Vector2(-108, 108)
+state = 12
+
+[node name="State14" parent="env6" instance=ExtResource("2_44c0s")]
+position = Vector2(-36, 108)
+state = 13
+
+[node name="State15" parent="env6" instance=ExtResource("2_44c0s")]
+position = Vector2(36, 108)
+state = 14
+reward_state = true
+punishment_state = false
+
+[node name="State16" parent="env6" instance=ExtResource("2_44c0s")]
+position = Vector2(108, 108)
+state = 15
+
+[node name="boundary" type="Area2D" parent="env6" groups=["boundary"]]
+position = Vector2(-576, -324)
+priority = 1.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="env6/boundary"]
+position = Vector2(577, 157)
+shape = SubResource("RectangleShape2D_sw5jp")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="env6/boundary"]
+position = Vector2(405, 320)
+rotation = 1.57079
+shape = SubResource("RectangleShape2D_sw5jp")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="env6/boundary"]
+position = Vector2(747, 320)
+rotation = 1.57079
+shape = SubResource("RectangleShape2D_sw5jp")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="env6/boundary"]
+position = Vector2(576, 493)
+shape = SubResource("RectangleShape2D_sw5jp")
+
+[node name="ColorRect" type="ColorRect" parent="env6/boundary"]
+offset_left = 387.0
+offset_top = 134.0
+offset_right = 766.0
+offset_bottom = 183.0
+color = Color(0.407843, 0.305882, 0.00784314, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="ColorRect3" type="ColorRect" parent="env6/boundary"]
+offset_left = 436.0
+offset_top = 134.0
+offset_right = 815.0
+offset_bottom = 183.0
+rotation = 1.5708
+color = Color(0.407843, 0.305882, 0.00784314, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="ColorRect4" type="ColorRect" parent="env6/boundary"]
+offset_left = 766.0
+offset_top = 134.0
+offset_right = 1145.0
+offset_bottom = 183.0
+rotation = 1.5708
+color = Color(0.407843, 0.305882, 0.00784314, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="ColorRect2" type="ColorRect" parent="env6/boundary"]
+offset_left = 387.0
+offset_top = 464.0
+offset_right = 766.0
+offset_bottom = 513.0
+color = Color(0.407843, 0.305882, 0.00784314, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="ai" type="Area2D" parent="env6"]
+position = Vector2(-108, -108)
+script = ExtResource("1_21ytb")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="env6/ai"]
+shape = SubResource("RectangleShape2D_pe1j6")
+
+[node name="ColorRect" type="ColorRect" parent="env6/ai"]
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+color = Color(0, 0, 0, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="move_timer" type="Timer" parent="."]
+wait_time = 0.12
+autostart = true
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(685, 424)
+current = true
+zoom = Vector2(0.75, 0.75)
+
+[connection signal="area_entered" from="env/ai" to="env/ai" method="_on_area_entered"]
+[connection signal="area_entered" from="env2/ai" to="env2/ai" method="_on_area_entered"]
+[connection signal="area_entered" from="env3/ai" to="env3/ai" method="_on_area_entered"]
+[connection signal="area_entered" from="env4/ai" to="env4/ai" method="_on_area_entered"]
+[connection signal="area_entered" from="env5/ai" to="env5/ai" method="_on_area_entered"]
+[connection signal="area_entered" from="env6/ai" to="env6/ai" method="_on_area_entered"]

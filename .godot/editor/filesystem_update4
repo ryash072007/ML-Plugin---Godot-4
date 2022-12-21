@@ -1,0 +1,5 @@
+res://example/Q_Learning/virtual_q_learning.tscn
+res://example/Q_Learning/q_learning_example.tscn
+res://example/Q_Learning/ai.gd
+res://example/Q_Learning/state.tscn
+res://addons/machine_learning/Scripts/Q_Learning.gd

@@ -1,0 +1,17 @@
+Camera2D
+ColorRect
+CollisionShape2D
+Area2D
+CharacterBody2D
+Timer
+Node2D
+CanvasModulate
+Label
+StaticBody2D
+TileMap
+RayCast2D
+Node
+Line2D
+RigidBody2D
+MultiMeshInstance2D
+GPUParticles3D
